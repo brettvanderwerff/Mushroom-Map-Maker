@@ -1,0 +1,6 @@
+Flask_WTF==0.14.2
+WTForms==2.1
+Flask==0.12.2
+setuptools==28.8.0
+Flask_Bootstrap==3.3.7.1
+requests==2.18.4
