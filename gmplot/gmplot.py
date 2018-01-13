@@ -180,6 +180,8 @@ class GoogleMapPlotter(object):
         f.write(
             '<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>\n')
         f.write('<title>Google Maps - pygmaps </title>\n')
+        f.write('{% extends "navbar.html" %}')
+        f.write('{% block content %}')
         if self.apikey:
             f.write('<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false&key=%s"></script>\n' % self.apikey )
         else:
@@ -195,8 +197,6 @@ class GoogleMapPlotter(object):
         f.write('\t}\n')
         f.write('</script>\n')
         f.write('</head>\n')
-        f.write('{% extends "navbar.html" %}')
-        f.write('{% block content %}')
         f.write(
             '<body style="margin:0px; padding:0px;" onload="initialize()">\n')
         f.write(
