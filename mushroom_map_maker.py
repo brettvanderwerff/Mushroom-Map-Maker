@@ -10,8 +10,11 @@ from gmplot import gmplot
 import requests
 
 def generate_url(genus_name, species_name):
+    '''Function accepts user defined genus and species names and generates a functional URL
+    to query mushroomobserver.com'''
     full_name = '{}+{}'.format(genus_name, species_name)
     url = 'http://mushroomobserver.org/api/observations?name={}&detail=low&format=json'.format(full_name)
+    print(url)
     return url
 
 
@@ -20,8 +23,12 @@ def get_raw_results(url):
     mushroomobserver.com in the form of JSON data, which
      includes GPS data from observations of the user defined mushroom.'''
     mushroom_request = requests.get(url)
-    raw_results = mushroom_request.json()
-    return raw_results
+    if mushroom_request.status_code == 200:
+        raw_results = mushroom_request.json()
+        print(raw_results)
+        return raw_results
+    else:
+        return 'connection_error'
 
 def get_location_data(raw_results):
     '''Function parses JSON data from get_raw_results() to isolate GPS data
@@ -41,6 +48,8 @@ def get_location_data(raw_results):
     return latitude_list, longitude_list
 
 def draw_map(latitude_list, longitude_list):
+    print(latitude_list)
+    print(longitude_list)
     '''Function uses the gmplot package to render an html pagge to the user
     with the distribution of the user defined mushroom.'''
     print('drawing map...')
@@ -53,10 +62,24 @@ def draw_map(latitude_list, longitude_list):
     print('map is complete!')
 
 def run(genus_name, species_name):
+    '''Run function will render mushroom distribution heat map only if the mushroom name
+    did not return JSON from mushroom observer with an error and only if mushroom observer
+    status code == 200.'''
     url = generate_url(genus_name, species_name)
     raw_results = get_raw_results(url)
-    latitude_list, longitude_list = get_location_data(raw_results)
-    draw_map(latitude_list, longitude_list)
+    if raw_results == 'connection_error':
+        return 'connection_error'
+    else:
+        try:
+            latitude_list, longitude_list = get_location_data(raw_results)
+        except KeyError:
+            return 'mushroom_name_error'
+        else:
+            draw_map(latitude_list, longitude_list)
+
+
+
+
 
 
 
