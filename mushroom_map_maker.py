@@ -30,7 +30,6 @@ def generate_url(genus_name, species_name):
     to query mushroomobserver.com'''
     full_name = '{}+{}'.format(genus_name, species_name)
     url = 'http://mushroomobserver.org/api/observations?name={}&detail=low&format=json'.format(full_name)
-    print(url)
     return url
 
 def get_raw_results(url):
