@@ -14,7 +14,7 @@ WTForms==2.1,
 Flask==0.12.2,
 setuptools==28.8.0,
 Flask_Bootstrap==3.3.7.1,
-requests==2.18.4,
+requests==2.18.4
 
 Note: gmplot is not a dependency, so do not pip install it as a package before running. gmplot was included directly in the repo because the source code has been (roughly) modifed to communicate with flask. mushroom_map_maker.py can be run directly or can be run through the flask app mushroom_map_maker_web_app. The program was designed primarly for use through the flask app. 
 
