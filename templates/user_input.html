@@ -1,4 +1,6 @@
- <h1>Submit Species Please</h1>
+{% extends "navbar.html" %}
+{% block content %}
+<h1>Submit Genus and Species Name Please</h1>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -11,3 +13,4 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+{% endblock %}
