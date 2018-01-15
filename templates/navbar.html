@@ -1,25 +1,17 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}The Mushroom Map{% endblock %}
 {% block navbar %}
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" style="background-color: white;">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">The Mushroom Map</a>
     </div>
     <ul class="nav navbar-nav">
-      {% if page == 'home' %}
-        <li class="active">
-      {% else %}
-        <li>
-      {% endif %}
-        <a href="/">Home</a>
+      <li>
+        <a href="/" {% if page == 'home' %} style="color: blue;" {% endif %}>Home</a>
       </li>
-      {% if page == 'search' %}
-        <li class="active">
-      {% else %}
-        <li>
-      {% endif %}
-        <a href="/user_input">Search for a Mushroom</a>
+      <li>
+        <a href="/user_input" {% if page == 'search' %} style="color: blue;" {% endif %}>Search for a Mushroom</a>
       </li>
     </ul>
   </div>
