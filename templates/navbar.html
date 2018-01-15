@@ -7,8 +7,20 @@
       <a class="navbar-brand" href="/">The Mushroom Map</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/user_input">Search for a Mushroom</a></li>
+      {% if page == 'home' %}
+        <li class="active">
+      {% else %}
+        <li>
+      {% endif %}
+        <a href="/">Home</a>
+      </li>
+      {% if page == 'search' %}
+        <li class="active">
+      {% else %}
+        <li>
+      {% endif %}
+        <a href="/user_input">Search for a Mushroom</a>
+      </li>
     </ul>
   </div>
 </nav>
