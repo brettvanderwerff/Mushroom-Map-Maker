@@ -1,6 +1,9 @@
 {% extends "navbar.html" %}
 {% block content %}
-<h1>Submit a Mushroom Genus and Species Name Please.</h1>
+<div class="container">
+  <div class="jumbotron" style="background-color: white; box-shadow: 1px 3px 5px 3px rgba(204, 204, 204, 0.3);">
+    <h2 class="text-center">Submit a Mushroom Genus and Species Name Please.</h2>
+    <hr />
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -19,6 +22,8 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
-<p><b><u>Example:</u></b> genus: <i>amanita</i>, species: <i>muscaria</i>.</p>
-<p><b><u>Example:</u></b> genus: <i>pleurotus</i>, species: <i>ostreatus</i>.</p>
+    <p><b><u>Example:</u></b> genus: <i>amanita</i>, species: <i>muscaria</i>.</p>
+    <p><b><u>Example:</u></b> genus: <i>pleurotus</i>, species: <i>ostreatus</i>.</p>
+  </div>
+</div>
 {% endblock %}
