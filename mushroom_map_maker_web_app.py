@@ -13,7 +13,7 @@ from flask import Flask, render_template, redirect, url_for
 from forms import UserInput
 import mushroom_map_maker
 
-'''Creates an instance of the Flask class as the object 'app', configures the flask object 'app', 
+'''Creates an instance of the Flask class as the object 'app', configures the flask object 'app',
 and passes 'app' to the Bootstrap class.'''
 
 app = Flask(__name__)
@@ -26,7 +26,7 @@ Bootstrap(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', page='home') # you can pass variables to use in templates
 
 @app.route('/user_input', methods=['GET', 'POST'])
 def user_input():
@@ -35,7 +35,7 @@ def user_input():
         genus_name = form.genus_name.data.strip(' ')
         species_name = form.species_name.data.strip(' ')
         return redirect(url_for('result', genus_name=genus_name, species_name=species_name))
-    return render_template('user_input.html', form=form)
+    return render_template('user_input.html', form=form, page='search')
 
 @app.route('/result/<genus_name>/<species_name>')
 def result(genus_name, species_name):
@@ -49,4 +49,3 @@ def result(genus_name, species_name):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
