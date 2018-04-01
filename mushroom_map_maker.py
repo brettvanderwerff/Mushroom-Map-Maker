@@ -71,7 +71,7 @@ def draw_map(latitude_list, longitude_list):
     Commented out lines represent optional map outputs.
     '''
     print('drawing map...')
-    gmap = gmplot.GoogleMapPlotter(40.078729, -97.131828, 4)
+    gmap = gmplot.GoogleMapPlotter(40.078729, -97.131828, 4, apikey='your api key goes here')
     #gmap.plot(latitude_list, longitude_list, 'cornflowerblue', edge_width=10)
     #gmap.scatter(latitude_list, longitude_list, '#3B0B39', size=40, marker=False)
     #gmap.scatter(latitude_list, longitude_list, 'k', marker=True)
