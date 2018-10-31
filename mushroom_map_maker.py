@@ -12,6 +12,7 @@ from gmplot import gmplot
 import os
 import requests
 import webbrowser
+import config
 
 def get_user_input():
     '''Function will take user input for assignment to genus_name and species_name variables.
@@ -71,7 +72,7 @@ def draw_map(latitude_list, longitude_list):
     Commented out lines represent optional map outputs.
     '''
     print('drawing map...')
-    gmap = gmplot.GoogleMapPlotter(40.078729, -97.131828, 4, apikey='your api key goes here')
+    gmap = gmplot.GoogleMapPlotter(40.078729, -97.131828, 4, apikey=config.api_key)
     gmap.heatmap(latitude_list, longitude_list, threshold=10, radius=25, gradient=None, opacity=0.6, dissipating=True)
     gmap.draw("mushroom_map.html")
     print('map is complete!')
