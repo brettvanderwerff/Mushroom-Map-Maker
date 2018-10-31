@@ -8,6 +8,8 @@ An example of searching for the mushroom with the genus amanita and the species 
 
 ![picture alt](/readme_images/input.png)
 
+Which produces an output like this:
+
 ![picture alt](/readme_images/output.png)
 
 In the app, this map can be scrolled to see the distribution of amanita muscaria across the globe. 
